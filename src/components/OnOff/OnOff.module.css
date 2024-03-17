@@ -1,0 +1,15 @@
+.green {
+    width: 30px;
+    background-color: green;
+    border: 1px solid black;
+}
+.red {
+    width: 30px;
+    background-color: red;
+    border: 1px solid black;
+}
+.default {
+    width: 30px;
+    background-color: inherit;
+    border: 1px solid black;
+}
