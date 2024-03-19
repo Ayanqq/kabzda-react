@@ -1,31 +1,27 @@
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
 import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingPropsType, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
 import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
 
 
 const App = () => {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordion, setAccordion] = useState(false)
+    const [on, setOn] = useState(true)
+
     return (
         <div>
-            {/*<Accordion title={'Name'} collapsed={false}/>*/}
-            {/*<Accordion title={'Users'} collapsed={true}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
 
-            <UnControlledAccordion title={'What you want'} />
-            <UnControlledAccordion title={'What you need'} />
-
-            <UnControlledRating/>
-
-            <OnOff />
+            <Rating value={ratingValue} onClick={setRatingValue}/>
 
 
+            <OnOff value={on} onChange={setOn}/>
+
+            <Accordion title={'Wsup'} onClick={setAccordion} collapsed={accordion}/>
         </div>
     )
 

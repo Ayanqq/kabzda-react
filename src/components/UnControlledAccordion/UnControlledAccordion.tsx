@@ -10,6 +10,7 @@ export const UnControlledAccordion = (props: AccordionPropsType) => {
 
     const [collapsed, setCollapsed] = useState(true)
 
+
     const onClickHandler = () => {
         const onCollapsed = !collapsed
         setCollapsed(onCollapsed)
