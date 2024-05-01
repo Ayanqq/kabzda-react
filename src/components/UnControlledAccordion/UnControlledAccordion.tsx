@@ -1,19 +1,35 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 
 type AccordionPropsType = {
     title: string;
-    // collapsed?: boolean;
+    collapsed?: boolean;
 }
 
+type ActionType = {
+    type: string;
+
+}
+
+const reducer = (state:boolean, action: ActionType) => {
+    debugger
+    if (action.type === 'Toggle-collapsed') {
+        return !state
+    }
+
+    return state
+}
 
 export const UnControlledAccordion = (props: AccordionPropsType) => {
 
-    const [collapsed, setCollapsed] = useState(true)
+    //const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, dispatch] = useReducer(reducer, false)
 
 
     const onClickHandler = () => {
         const onCollapsed = !collapsed
-        setCollapsed(onCollapsed)
+        dispatch({
+            type:'Toggle-collapsed'
+        })
     }
 
     return (<>
